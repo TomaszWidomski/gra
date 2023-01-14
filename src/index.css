@@ -1,0 +1,71 @@
+.game-container {
+  border: 5px rgb(52, 45, 45) solid;
+}
+
+.boxes-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vh;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  grid-template-rows: repeat(3, 120px);
+}
+
+.x {
+  display: flex;
+  width: 35px;
+  height: 35px;
+  color: red;
+  border-width: 15px;
+  transform: rotate(45deg);
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(0deg);
+  font-size: 85px;
+  align-items: center;
+  justify-content: center;
+}
+
+.o {
+  display: flex;
+  width: 35px;
+  height: 35px;
+  color: red;
+  font-size: 85px;
+  align-items: center;
+  justify-content: center;
+
+  border-width: 15px;
+}
+
+.player-box {
+  background-color: beige;
+  font-size: large;
+  width: 150px;
+  height: 45px;
+}
+
+.new-game {
+  position: absolute;
+  font-size: larger;
+  background-color: beige;
+  width: 150px;
+  height: 45px;
+}
+.winner-container {
+  width: auto;
+  align-items: center;
+  font-style: italic;
+  font-size: 45px;
+}
+.box-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85px;
+  height: 85px;
+
+  background-color: beige;
+  border-width: 5px;
+}
