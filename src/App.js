@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Box from "./components/Box";
-import Feedback from "./components/Feedback";
 import "./index.css";
+
 function App() {
   const [winner, setWinner] = useState("");
   const [player, setPlayer] = useState(1);
@@ -67,17 +67,14 @@ function App() {
         [3, 5, 7],
       ];
 
-      ////////////////
       let computerChoice = 0;
 
       if (userBoxes.length <= 1) {
         if (boxes[4].free === true) {
           computerChoice = 5;
         } else {
-          console.log(boxes[5].free);
           computerChoice = freeBoxes[randomNumber(1, freeBoxes.length - 1)];
         }
-        // let computerChoice = freeBoxes[randomNumber(1, freeBoxes.length - 1)];
 
         setBoxes(() => {
           return boxes.map((obj) => {
@@ -135,10 +132,7 @@ function App() {
             return obj;
           });
         });
-      }
-
-      ///////////////
-      else if (userBoxes.length >= 3) {
+      } else if (userBoxes.length >= 3) {
         let possibleWC = [];
         for (let n = 0; n < wc.length; n++) {
           if (userBoxes.some((a) => wc[n].includes(a))) {
@@ -242,35 +236,46 @@ function App() {
       }
     }
   };
+  let champion;
+  if (winner === 0) {
+    champion = "unknown yet";
+  } else if (winner === 1) {
+    champion = "You";
+  } else {
+    champion = "Computer";
+  }
 
   return (
-    <div className="game-container">
-      <div>
-        <div className="winner-container">The winner is player : {winner} </div>
+    <>
+      <div className="game-container">
+        <div id="winner-text">The winner is: {champion}</div>
+        <div className="boxes-container">
+          {boxes.map((a) => (
+            <Box
+              id={a.id}
+              remark={a.remark}
+              free={a.free}
+              active={a.active}
+              changeTic={() => changeTicState(a.id)}
+            />
+          ))}
+        </div>
+        <div id="buttons-container">
+          <button className="button current-player">
+            {" "}
+            Current player: {player}{" "}
+          </button>
+          <button
+            className="button new-game"
+            onClick={() => {
+              return resetGame();
+            }}
+          >
+            New Game
+          </button>
+        </div>
       </div>
-
-      <div className="boxes-container">
-        {boxes.map((a) => (
-          <Box
-            id={a.id}
-            remark={a.remark}
-            free={a.free}
-            active={a.active}
-            changeTic={() => changeTicState(a.id)}
-          />
-        ))}
-      </div>
-      <button className="player-box"> Current player is: {player} </button>
-      <button
-        className="new-game"
-        onClick={() => {
-          return resetGame();
-        }}
-      >
-        New Game
-      </button>
-      <Feedback />
-    </div>
+    </>
   );
 }
 

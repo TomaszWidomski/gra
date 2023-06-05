@@ -1,71 +1,87 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 .game-container {
-  border: 5px rgb(52, 45, 45) solid;
+  background-color: #535353;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .boxes-container {
-  display: flex;
+  outline: 2px solid #88d317;
+  background-color: #6e3667;
+  justify-items: center;
   justify-content: center;
   align-items: center;
-  width: 100vh;
-  height: 80vh;
+  width: 24rem;
+  height: 24rem;
   display: grid;
-  grid-template-columns: repeat(3, 120px);
-  grid-template-rows: repeat(3, 120px);
+  grid-template-columns: repeat(3, 7.5rem);
+  grid-template-rows: repeat(3, 7.5rem);
+  gap: 0.5rem;
+}
+#winner-text {
+  font-size: 1.8rem;
+  color: white;
+  margin-bottom: 1rem;
 }
 
 .x {
   display: flex;
-  width: 35px;
-  height: 35px;
-  color: red;
-  border-width: 15px;
+  width: 2rem;
+  height: 2rem;
+  color: #88d317;
+  border-width: 1rem;
   transform: rotate(45deg);
   -ms-transform: rotate(90deg);
   -webkit-transform: rotate(0deg);
-  font-size: 85px;
+  font-size: 5.31rem;
   align-items: center;
   justify-content: center;
 }
 
 .o {
   display: flex;
-  width: 35px;
-  height: 35px;
-  color: red;
-  font-size: 85px;
+  width: 2rem;
+  height: 2rem;
+  color: #88d317;
+  font-size: 5.31rem;
   align-items: center;
   justify-content: center;
-
-  border-width: 15px;
+  border-width: 1rem;
 }
 
-.player-box {
-  background-color: beige;
-  font-size: large;
-  width: 150px;
-  height: 45px;
-}
-
-.new-game {
-  position: absolute;
-  font-size: larger;
-  background-color: beige;
-  width: 150px;
-  height: 45px;
-}
-.winner-container {
-  width: auto;
-  align-items: center;
-  font-style: italic;
-  font-size: 45px;
-}
 .box-active {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 85px;
-  height: 85px;
-
+  width: 5.31rem;
+  height: 5.31rem;
   background-color: beige;
-  border-width: 5px;
+  border-width: 0.25rem;
+}
+.button {
+  width: 10rem;
+  height: 4rem;
+  margin: 1rem;
+}
+
+.current-player {
+  background-color: #88d317;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.new-game {
+  background-color: #88d317;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+@media (max-width: 37.5rem) {
+  * {
+    font-size: 70%;
+  }
 }
